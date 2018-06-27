@@ -8,13 +8,26 @@ namespace AdamsToDoConsoleApplication
 {
     public class Task
     {
-        private string mTitle;
-        private string mDescription;
+        public string mTitle;
+        public string mDescription;
+        public bool mCompletion;
 
-        public Task(string title, string description)
+        public Task(string title, string description, bool completion)
         {
             mTitle = title;
             mDescription = description;
+            mCompletion = completion;
+        }
+        
+    }
+    public class FileTask
+    {
+        public List<TaskList> Tasks;
+        public class TaskList
+        {
+            public string mTitle;
+            public string mDescription;
+            public bool mCompletion;
         }
     }
 }
