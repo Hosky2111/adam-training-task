@@ -8,7 +8,7 @@ namespace AdamsToDoConsoleApplication
 {
     class InputHandler
     {
-        public static void Reader (string option)
+        public static string Reader (string option)
         {
             var uInput = Console.ReadLine();
             if (uInput.Equals(typeof(int)) && option == "string")
@@ -20,7 +20,13 @@ namespace AdamsToDoConsoleApplication
                 //uInput = (Convert.ToInt32(uInput));
             }
 
-
+            return uInput;
         }
+
+        //public static bool isInputInteger (string input)
+        //{
+        //    if()
+        //}
+
     }
 }

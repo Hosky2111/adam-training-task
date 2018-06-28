@@ -87,12 +87,12 @@ namespace AdamsToDoConsoleApplication
                 JObject newJsonO = new JObject(
                     new JProperty("Tasks",
                         new JArray(
-                            from i in taskCollection
+                            from task in taskCollection
                             select new JObject
                             (
-                                new JProperty("mTitle", i.mTitle),
-                                new JProperty("mDescription", i.mDescription),
-                                new JProperty("mCompletion", i.mCompletion)
+                                new JProperty("mTitle", task.mTitle),
+                                new JProperty("mDescription", task.mDescription),
+                                new JProperty("mCompletion", task.mCompletion)
                             ))));
 
                 Console.WriteLine(newJsonO.ToString());

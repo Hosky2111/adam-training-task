@@ -25,9 +25,10 @@ namespace AdamsToDoConsoleApplication
                 Console.Write("\n1. Edit Task \n2. Change Tag\n");
                 var editChoice = Console.ReadLine().ToString();
 
-                string currentTitle = taskCollection[taskIndex].mTitle;
-                string currentDescription = taskCollection[taskIndex].mDescription;
-                bool currentCompletion = taskCollection[taskIndex].mCompletion;
+                Task currentTask = taskCollection[taskIndex];
+                string currentTitle = currentTask.mTitle;
+                string currentDescription = currentTask.mDescription;
+                bool currentCompletion = currentTask.mCompletion;
 
                 if (editChoice == "1")
                 {
@@ -38,14 +39,16 @@ namespace AdamsToDoConsoleApplication
                 }
                 if (editChoice == "2")
                 {
-                    if (currentCompletion)
-                    {
-                        taskCollection[taskIndex].mCompletion = false;
-                    }
-                    if (!currentCompletion)
-                    {
-                        taskCollection[taskIndex].mCompletion = true;
-                    }
+                    taskCollection[taskIndex].mCompletion = !taskCollection[taskIndex].mCompletion;
+
+                    //if (currentCompletion)
+                    //{
+                    //    taskCollection[taskIndex].mCompletion = false;
+                    //}
+                    //if (!currentCompletion)
+                    //{
+                    //    taskCollection[taskIndex].mCompletion = true;
+                    //}
                 }
             }
             catch(Exception ex)
