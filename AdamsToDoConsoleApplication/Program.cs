@@ -26,29 +26,19 @@ namespace AdamsToDoConsoleApplication
 
                 if (input == "1")
                 {
-                    TaskFunctions.CreateTask(taskCollection);
+                    CreateFunction.CreateTask(taskCollection);
                 }
                 if (input == "2")
                 {
-                    TaskFunctions.EditTaskIndex(taskCollection);
+                    EditFunction.EditTaskIndex(taskCollection);
                 }
                 if (input == "3")
                 {
-                    Console.Write("Delete as:\n1. Index of Task\n2. Name of Task\n");
-                    var deletionChoice = Console.ReadLine().ToString();
-                    if (deletionChoice == "1")
-                    {
-                        TaskFunctions.RemoveTaskIndex(taskCollection);
-                    }
-                    if (deletionChoice == "2")
-                    {
-                        TaskFunctions.RemoveTaskName(taskCollection);
-                    }
-
+                    RemoveFunction.removelist(taskCollection);
                 }
                 if (input == "4")
                 {
-                    TaskFunctions.ListTask(taskCollection);
+                    ListFunction.ListTask(taskCollection);
                 }
                 if (input == "5")
                 {
@@ -60,7 +50,7 @@ namespace AdamsToDoConsoleApplication
                     }
                     if (saveChoice == "2")
                     {
-                        FileManagement.WriteFiles(taskCollection);
+                        JsonFileManagement.JsonWriteFiles(taskCollection);
                     }
                 }
 
