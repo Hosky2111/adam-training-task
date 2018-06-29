@@ -32,6 +32,7 @@ namespace AdamsToDoConsoleApplication
             mDescription = description;
             mCompletion = completion;
         }
+
     }
     //public class FileTask
     //{

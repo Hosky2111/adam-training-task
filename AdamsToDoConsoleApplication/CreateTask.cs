@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace AdamsToDoConsoleApplication
 {
-    class CreateFunction
+    public class CreateFunction
     {
-        public static void CreateTask(List<Task> taskCollection)
+        public void CreateTask(List<Task> taskCollection)
         {
             try
             {
