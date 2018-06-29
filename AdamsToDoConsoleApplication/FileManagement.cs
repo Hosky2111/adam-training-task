@@ -21,7 +21,7 @@ namespace AdamsToDoConsoleApplication
                     looper = false;
                     JsonFileManagement.JsonReadFiles(path, taskCollection);
                 }
-                if (Path.GetExtension(path) == ".Xml")
+                if (Path.GetExtension(path) == ".xml")
                 {
                     looper = false;
                     XmlFileManagement.XmlReadFiles(path, taskCollection);

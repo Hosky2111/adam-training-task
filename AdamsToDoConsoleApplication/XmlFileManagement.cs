@@ -14,13 +14,26 @@ namespace AdamsToDoConsoleApplication
     {
         public static void XmlReadFiles(string path, List<Task> taskCollection)
         {
-            System.Xml.Serialization.XmlSerializer reader =
-            new System.Xml.Serialization.XmlSerializer(typeof(Task));
-            System.IO.StreamReader file = new System.IO.StreamReader(
-                path);
-            Task newtask = (Task)reader.Deserialize(file);
-            file.Close();
-            Console.WriteLine(newtask.ToString());
+            string rawFileString = System.IO.File.ReadAllText(path);//System.IO.File.ReadAllText(@"C:\Users\AdamHoskinson\Documents\document.json");
+            XElement loadedObject = XElement.Parse(rawFileString);
+            List<string> xmElements =loadedObject.Elements("Tasks").Select(el => el.Attribute("Task").Value).ToList();
+            foreach (var obj in xmElements)
+            {
+                Console.Write("a");
+                Console.Write(obj);
+                //var task = new Task((string)obj.mTitle, (string)obj.mDescription, (bool)obj.mCompletion); ///////////weird
+                //taskCollection.Add(task);
+            }
+            Console.ForegroundColor = ConsoleColor.Green;
+            //Console.Write("\nFile Successfully Opened\n");
+            Console.ResetColor();
+            //System.Xml.Serialization.XmlSerializer reader =
+            //new System.Xml.Serialization.XmlSerializer(typeof(Task));
+            //System.IO.StreamReader file = new System.IO.StreamReader(
+            //    path);
+            //Task newtask = (Task)reader.Deserialize(file);
+            //file.Close();
+            //Console.WriteLine(newtask.ToString());
             //try
             //{
             //string rawFileString = System.IO.File.ReadAllText(path);

@@ -29,10 +29,11 @@ namespace AdamsToDoConsoleApplication
                 Console.Write(
                 $"2. Edit\n" +
                 $"3. Delete\n" +
-                $"4. List\n" +
-                $"5. File\n");
+                $"4. List\n");
                 Console.ResetColor();
-                Console.Write($"6. Close\n");
+                Console.Write
+                ($"5. File\n"+
+                $"6. Close\n");
             }
         }
 
