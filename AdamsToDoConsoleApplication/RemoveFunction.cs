@@ -11,7 +11,7 @@ namespace AdamsToDoConsoleApplication
         public static void removelist(List<Task> taskCollection)
             {
                     Console.Write("Delete as:\n1. Index of Task\n2. Name of Task\n");
-                    var deletionChoice = Console.ReadLine().ToString();
+                    var deletionChoice = InputHandler.uStrinput(Console.ReadLine());
                     try
                     {
 
@@ -36,7 +36,7 @@ namespace AdamsToDoConsoleApplication
         public static void RemoveTaskName(List<Task> taskCollection)
         {
             Console.Write("\nEnter name of task you would like to Delete\n");
-            var taskTitle = Console.ReadLine().ToString();
+            var taskTitle = InputHandler.uStrinput(Console.ReadLine());
             var taskToDelete = taskCollection.Where(t => t.mTitle.Equals(taskTitle, StringComparison.InvariantCultureIgnoreCase));
             taskCollection.Remove(taskToDelete.ElementAt(0));
         }

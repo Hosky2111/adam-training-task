@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace AdamsToDoConsoleApplication
 {
-    public static class EditFunction
+    class EditFunction
     {
         public static void EditTaskIndex(List<Task> taskCollection)
         {
             try
             {
                 int indexer = 0;
-                foreach (Task i in taskCollection)
+                foreach (Task task in taskCollection)
                 {
-                    Console.Write("{0}. {1}\n", indexer, i.mTitle);
+                    Console.Write("{0}. {1}\n", indexer, task.mTitle);
                     indexer++;
                 }
 
@@ -26,20 +26,17 @@ namespace AdamsToDoConsoleApplication
                 var editChoice = InputHandler.uStrinput(Console.ReadLine());
 
                 Task currentTask = taskCollection[taskIndex];
-                string currentTitle = currentTask.mTitle;
-                string currentDescription = currentTask.mDescription;
-                bool currentCompletion = currentTask.mCompletion;
 
                 if (editChoice == "1")
                 {
-                    Console.Write("Current Description = {0}\nNew Description = ", currentDescription);
+                    Console.Write("Current Description = {0}\nNew Description = ", currentTask.mDescription);
                     var newDescription = Console.ReadLine();
-
-                    taskCollection[taskIndex].mDescription = newDescription;
+                    //Not handled by input handler as the description should be allowed to be an empty string
+                    currentTask.mDescription = newDescription;
                 }
                 if (editChoice == "2")
                 {
-                    taskCollection[taskIndex].mCompletion = !taskCollection[taskIndex].mCompletion;
+                    currentTask.mCompletion = !currentTask.mCompletion;
 
                     //if (currentCompletion)
                     //{

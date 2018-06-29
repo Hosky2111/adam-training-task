@@ -19,7 +19,7 @@ namespace AdamsToDoConsoleApplication
                 JObject loadedObject = JObject.Parse(rawFileString);
                 foreach (var obj in loadedObject["Tasks"])
                 {
-                    var task = new Task(obj["mTitle"].ToString(), obj["mDescription"].ToString(), Convert.ToBoolean(obj["mCompletion"]));
+                    var task = new Task(obj["mTitle"].ToString(), obj["mDescription"].ToString(), Convert.ToBoolean(obj["mCompletion"])); ///////////weird
                     taskCollection.Add(task);
                 }
                 Console.ForegroundColor = ConsoleColor.Green;
@@ -65,7 +65,7 @@ namespace AdamsToDoConsoleApplication
                 if (String.IsNullOrWhiteSpace(wpath) == true)
                 {
                     Console.WriteLine("As no path was entered, the default path will be used : \\user\\documents\\Todo");
-                    wpath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments).ToString() + "\\Todo\\";
+                    wpath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Todo\\";
                     Directory.CreateDirectory(wpath); // will only create if it doesn't exist
                 }
                 if (wpath.Substring((wpath.Length - 1), 1) != "\\")

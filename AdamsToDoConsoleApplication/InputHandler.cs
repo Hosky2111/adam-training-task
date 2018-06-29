@@ -50,10 +50,7 @@ namespace AdamsToDoConsoleApplication
                     Console.WriteLine("The text you entered was empty\n");
                     uInput = Console.ReadLine();
                 }
-                else
-                {
-                    inputLoop = false;
-                }
+                else { inputLoop = false; }
             }
             return (uInput);
         }
