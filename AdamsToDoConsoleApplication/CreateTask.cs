@@ -8,7 +8,7 @@ namespace AdamsToDoConsoleApplication
 {
     public class CreateFunction
     {
-        public void CreateTask(List<Task> taskCollection)
+        public static void CreateTask(List<Task> taskCollection)
         {
             try
             {

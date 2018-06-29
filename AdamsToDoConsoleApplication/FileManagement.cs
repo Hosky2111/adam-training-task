@@ -32,5 +32,28 @@ namespace AdamsToDoConsoleApplication
                 }
             }
         }
+        public static void WrieFiles(List<Task> taskCollection)
+        {
+            bool looper = true;
+            while (looper == true)
+            {
+                Console.WriteLine("File Type: \n1. JSON File\n2.XML File\n");
+                var writeChoice = Console.ReadLine();
+                if (writeChoice == "1")
+                {
+                    looper = false;
+                    JsonFileManagement.JsonWriteFiles(taskCollection);
+                }
+                if (writeChoice == "2")
+                {
+                    looper = false;
+                    XmlFileManagement.XmlWriteFiles(taskCollection);
+                }
+                else
+                {
+                    Console.WriteLine("Please choose 1 or 2\n");
+                }
+            }
+        }
     }
 }

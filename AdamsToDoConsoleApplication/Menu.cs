@@ -8,17 +8,32 @@ namespace AdamsToDoConsoleApplication
 {
     public class Menu
     {
-        public static void ShowMenu()
+        public static void ShowMenu(List<Task> taskCollection)
         {
             //Console.SetCursorPosition(0, 0);
-            Console.Write($"Main Menu\n" +
-            $"\n1. Create\n" +
-            $"2. Edit\n" +
-            $"3. Delete\n" +
-            $"4. List\n" +
-            $"5. File\n" +
-            $"6. Close\n");
-
+            if (taskCollection.Count() > 0)
+            {
+                Console.Write($"Main Menu\n" +
+                $"\n1. Create\n" +
+                $"2. Edit\n" +
+                $"3. Delete\n" +
+                $"4. List\n" +
+                $"5. File\n" +
+                $"6. Close\n");
+            }
+            if (taskCollection.Count() == 0)
+            {
+                Console.Write($"Main Menu\n" +
+                $"\n1. Create\n");
+                Console.ForegroundColor = ConsoleColor.DarkGray;
+                Console.Write(
+                $"2. Edit\n" +
+                $"3. Delete\n" +
+                $"4. List\n" +
+                $"5. File\n");
+                Console.ResetColor();
+                Console.Write($"6. Close\n");
+            }
         }
 
         public static void Line()
@@ -32,6 +47,14 @@ namespace AdamsToDoConsoleApplication
             Console.SetCursorPosition(0, Console.CursorTop);
             Console.Write(new string(' ', Console.WindowWidth));
             Console.SetCursorPosition(0, currentLineCursor);
+        }
+        public static void consoleTitle(List<Task> taskCollection)
+        {
+            string incompleteTasks = taskCollection.Where(task => !task.mCompletion).Count().ToString();
+            string totalTasks = taskCollection.Count().ToString();
+            string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+            string conTitle = (userName+"'s ToDo List " +incompleteTasks+ " / " + totalTasks+" Tasks Incomplete");// [{0}/{1}] Incomplete", incompleteTasks, totalTasks);
+            Console.Title = conTitle;
         }
     }
 }

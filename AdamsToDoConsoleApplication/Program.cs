@@ -18,8 +18,8 @@ namespace AdamsToDoConsoleApplication
 
             while (Looping == true)
             {
-
-                Menu.ShowMenu();
+                Menu.consoleTitle(taskCollection);
+                Menu.ShowMenu(taskCollection);
                 Menu.ClearCurrentConsoleLine();
                 input = Console.ReadLine().ToString();
                 Menu.Line();
@@ -50,7 +50,7 @@ namespace AdamsToDoConsoleApplication
                     }
                     if (saveChoice == "2")
                     {
-                        JsonFileManagement.JsonWriteFiles(taskCollection);
+                        FileManagement.WrieFiles(taskCollection);
                     }
                 }
 
