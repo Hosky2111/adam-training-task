@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace AdamsToDoConsoleApplication
 {
+    [XmlRoot("Task")]
     public class Task
     {
         public string mTitle;
@@ -17,12 +20,15 @@ namespace AdamsToDoConsoleApplication
         //public string mDescription { get { return MDescription; } }
         //private bool MCompletion;
         //public bool mCompletion { get { return MCompletion; } }
-
+        [XmlElement("taskCollection")]
         public List<taskCollection> Tasks;
         public class taskCollection
         {
+            [XmlElement("mTitle")]
             public string mTitle;
+            [XmlElement("mDescription")]
             public string mDescription;
+            [XmlElement("mCompletion")]
             public bool mCompletion;
         }
 
