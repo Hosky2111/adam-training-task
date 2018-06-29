@@ -19,7 +19,7 @@ namespace AdamsToDoConsoleApplication
                 JObject loadedObject = JObject.Parse(rawFileString);
                 foreach (var obj in loadedObject["Tasks"])
                 {
-                    var task = new Task(obj["mTitle"].ToString(), obj["mDescription"].ToString(), Convert.ToBoolean(obj["mCompletion"])); ///////////weird
+                    var task = new Task((string)obj["mTitle"], (string)obj["mDescription"], (bool)obj["mCompletion"]); ///////////weird
                     taskCollection.Add(task);
                 }
                 Console.ForegroundColor = ConsoleColor.Green;
