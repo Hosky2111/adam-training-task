@@ -50,7 +50,7 @@ namespace AdamsToDoConsoleApplication
                 Console.Write("{0}. {1}\n", indexer, currentTask.mTitle);
                 indexer++;
             }
-            int taskIndex = Convert.ToInt32(Console.ReadLine());
+            int taskIndex = InputHandler.uIntput(Console.ReadLine());
 
             taskCollection.RemoveAt(taskIndex);
         }

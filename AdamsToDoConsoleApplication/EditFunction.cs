@@ -20,10 +20,10 @@ namespace AdamsToDoConsoleApplication
                 }
 
                 Console.Write("\nEnter index of task you would like to Edit\n");
-                int taskIndex = Convert.ToInt32(Console.ReadLine());
+                int taskIndex = InputHandler.uIntput(Console.ReadLine());
 
                 Console.Write("\n1. Edit Task \n2. Change Tag\n");
-                var editChoice = Console.ReadLine().ToString();
+                var editChoice = InputHandler.uStrinput(Console.ReadLine());
 
                 Task currentTask = taskCollection[taskIndex];
                 string currentTitle = currentTask.mTitle;

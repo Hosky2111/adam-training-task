@@ -8,25 +8,54 @@ namespace AdamsToDoConsoleApplication
 {
     class InputHandler
     {
-        public static string Reader (string option)
+        public static int uIntput (string uInput)
         {
-            var uInput = Console.ReadLine();
-            if (uInput.Equals(typeof(int)) && option == "string")
+            bool inputLoop = true;
+            while (inputLoop == true)
             {
-                uInput = (uInput.ToString());
+                try
+                {
+                    int uIntput = Int32.Parse(uInput);
+                    inputLoop = false;
+                }
+                catch (ArgumentNullException)
+                {
+                    Console.WriteLine("No number was entered\n");
+                    inputLoop = true;
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Number is not in integer format: [{0}]\n", uInput);
+                    inputLoop = true;
+                }
+                catch (OverflowException)
+                {
+                    Console.WriteLine("Number is greater than the maximum value: [{0}]\n", uInput);
+                    inputLoop = true;
+                }
+                if (inputLoop)
+                {
+                    uInput = Console.ReadLine();
+                }
             }
-            if (uInput.Equals(typeof(string)) && option == "int")
-            {
-                //uInput = (Convert.ToInt32(uInput));
-            }
-
-            return uInput;
+            return (Int32.Parse(uInput));
         }
-
-        //public static bool isInputInteger (string input)
-        //{
-        //    if()
-        //}
-
+        public static string uStrinput(string uInput)
+        {
+            bool inputLoop = true;
+            while (inputLoop == true)
+            {
+                if (String.IsNullOrWhiteSpace(uInput))
+                {
+                    Console.WriteLine("The text you entered was empty\n");
+                    uInput = Console.ReadLine();
+                }
+                else
+                {
+                    inputLoop = false;
+                }
+            }
+            return (uInput);
+        }
     }
 }

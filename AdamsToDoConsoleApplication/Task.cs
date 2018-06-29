@@ -11,6 +11,12 @@ namespace AdamsToDoConsoleApplication
         public string mTitle;
         public string mDescription;
         public bool mCompletion;
+        //private string MTitle;
+        //public string mTitle { get { return MTitle; } }
+        //private string MDescription;
+        //public string mDescription { get { return MDescription; } }
+        //private bool MCompletion;
+        //public bool mCompletion { get { return MCompletion; } }
 
         public List<taskCollection> Tasks;
         public class taskCollection
